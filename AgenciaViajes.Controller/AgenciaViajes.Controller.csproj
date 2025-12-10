@@ -51,8 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ClienteAPI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReservaAPI.cs" />
+    <Compile Include="ViajeAPI.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\agenciaViajes.Model\AgenciaViajes.Model.csproj">
