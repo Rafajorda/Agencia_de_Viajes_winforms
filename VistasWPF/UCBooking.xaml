@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="VistasWPF.UCBooking"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Border Background="#FFF5F5F5" CornerRadius="6" Padding="12">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Gestión de Reservas" FontSize="18" FontWeight="Bold" Grid.ColumnSpan="2" />
+
+            <GroupBox Header="Nueva Reserva" Grid.Row="1" Grid.Column="0" Margin="0,10,10,10" Background="White">
+                <Grid Margin="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Cliente:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,8,0" />
+                    <ComboBox x:Name="CmbClientes" Grid.Row="0" Grid.Column="1" DisplayMemberPath="Apellidos" SelectedValuePath="IdCliente" />
+
+                    <TextBlock Text="Viaje:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,6,8,0" />
+                    <ComboBox x:Name="CmbViajes" Grid.Row="1" Grid.Column="1" DisplayMemberPath="Destino" SelectedValuePath="IdViaje" SelectionChanged="CmbViajes_SelectionChanged" />
+
+                    <TextBlock Text="Fecha Reserva:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="0,6,8,0" />
+                    <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+                        <DatePicker x:Name="DpFechaReserva" />
+                        <TextBlock x:Name="LblPlazasDisponibles" Text="Plazas disponibles: -" Margin="16,4,0,0" FontWeight="Bold" />
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Header="Filtros" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" Background="White">
+                <StackPanel Margin="8">
+                    <Button x:Name="BtnFiltrarPorCliente" Content="Filtrar por Cliente" Margin="0,0,0,8" Background="#FF3498DB" Foreground="White" FontWeight="Bold" Click="BtnFiltrarPorCliente_Click"/>
+                    <Button x:Name="BtnFiltrarPorViaje" Content="Filtrar por Viaje" Margin="0,0,0,8" Background="#FF2ECC71" Foreground="White" FontWeight="Bold" Click="BtnFiltrarPorViaje_Click"/>
+                    <Button x:Name="BtnMostrarTodas" Content="Mostrar Todas" Background="#FF9B59B6" Foreground="White" FontWeight="Bold" Click="BtnMostrarTodas_Click"/>
+                </StackPanel>
+            </GroupBox>
+
+            <DataGrid x:Name="DgReservas" Grid.Row="2" Grid.ColumnSpan="2" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" RowBackground="White" AlternatingRowBackground="#FFF7F7F7">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID Reserva" Binding="{Binding IdReserva}" Width="80" />
+                    <DataGridTextColumn Header="Cliente" Binding="{Binding Cliente}" Width="*" />
+                    <DataGridTextColumn Header="Destino" Binding="{Binding Destino}" Width="*" />
+                    <DataGridTextColumn Header="Precio (EUR)" Binding="{Binding Precio}" Width="120" />
+                    <DataGridTextColumn Header="Fecha Reserva" Binding="{Binding FechaReserva}" Width="120" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,8,0,0">
+                <Button x:Name="BtnCrearReserva" Content="Crear Reserva" Width="140" Margin="0,0,8,0" Background="#FF3BB70F" Foreground="White" FontWeight="Bold" Click="BtnCrearReserva_Click"/>
+                <Button x:Name="BtnCancelarReserva" Content="Cancelar Reserva" Width="160" Margin="0,0,8,0" Background="#FFE60404" Foreground="White" FontWeight="Bold" Click="BtnCancelarReserva_Click"/>
+                <TextBlock x:Name="TxtTotalReservas" Text="Total de reservas: 0" Margin="8,8,0,0" VerticalAlignment="Center" FontWeight="Bold" />
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

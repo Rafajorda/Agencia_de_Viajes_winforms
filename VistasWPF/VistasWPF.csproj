@@ -10,11 +10,16 @@
 
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.5.1" />
+    <PackageReference Include="SharpVectors.Wpf" Version="1.8.5" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\agenciaViajes.Model\AgenciaViajes.Model.csproj" />
     <ProjectReference Include="..\AgenciaViajes.Controller\AgenciaViajes.Controller.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Icons\*.svg" />
   </ItemGroup>
 
 </Project>

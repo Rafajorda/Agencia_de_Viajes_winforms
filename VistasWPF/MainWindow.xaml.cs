@@ -1,4 +1,8 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -6,43 +10,38 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace VistasWPF
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Lógica de interacción para MainWindow2.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow2 : Window
     {
-        public MainWindow()
+        public MainWindow2()
         {
             InitializeComponent();
         }
 
-    
-
-        private void BtnClientes_Click(object sender, RoutedEventArgs e)
+        private void RbtnClientes_Checked(object sender, RoutedEventArgs e)
         {
-            var w = new ClientesWindow();
-            w.Owner = this;
-            w.ShowDialog();
+            var uc = new UCClients();
+            MainContent.Content = uc;
         }
 
-        private void BtnViajes_Click(object sender, RoutedEventArgs e)
+        private void RbtnViajes_Checked(object sender, RoutedEventArgs e)
         {
-            var w = new ViajesWindow();
-            w.Owner = this;
-            w.ShowDialog();
+            var uc = new UCTravel();
+            MainContent.Content = uc;
         }
 
-        private void BtnReservas_Click(object sender, RoutedEventArgs e)
+        private void RbtnReservas_Checked(object sender, RoutedEventArgs e)
         {
-            var w = new ReservasWindow();
-            w.Owner = this;
-            w.ShowDialog();
+            var uc = new UCBooking();
+            MainContent.Content = uc;
         }
+
         private void BtnSalir_Click(object sender, RoutedEventArgs e)
         {
             Close();
