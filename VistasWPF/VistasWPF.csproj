@@ -22,4 +22,8 @@
     <Resource Include="Assets\Icons\*.svg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Resource Include="background.png" />
+  </ItemGroup>
+
 </Project>
