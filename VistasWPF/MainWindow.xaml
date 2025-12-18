@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:VistasWPF"
         xmlns:svg="clr-namespace:SharpVectors.Converters;assembly=SharpVectors.Converters.Wpf"
         mc:Ignorable="d"
-        Title="MainWindow2" Height="450" Width="800">
+        Title="Travel-world" Height="450" Width="800">
     <Window.Resources>
         <!-- existing styles unchanged -->
         <Style x:Key="MenuRadioButtonStyle" TargetType="RadioButton">
