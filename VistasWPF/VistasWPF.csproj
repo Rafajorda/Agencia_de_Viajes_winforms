@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="background.png" />
+    <Resource Include="Assets\images\background.png" />
   </ItemGroup>
 
 </Project>
